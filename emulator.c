@@ -116,17 +116,18 @@ int main() {
   Instruction bitwise_instructions[9]={
     {LoadImmediate, 0, R0, 1},
     {LoadImmediate, 0, R1, 1},
-    {And, R0, R1},
+    {And, R0, R1, 0},
     {LoadImmediate, 0, R2, 0},
-    {Or, R0, R2},
+    {Or, R0, R2, 0},
     {LoadImmediate, 0, R3, 0},
-    {Xor, 0, R0, R3},
-    {Xor, 0, R0, R3},
+    {Xor, R0, R3, 0},
+    {Xor, R0, R3, 0},
     {Halt, 0, 0, 0}
   };
   memset(registers, 0, sizeof(registers));
   execute(bitwise_instructions, registers);
   test_int_equal(registers[IP], 8);
+  test_int_equal(registers[R0], 1);
   test_int_equal(registers[R1], 1);
   test_int_equal(registers[R2], 1);
   test_int_equal(registers[R3], 0);
