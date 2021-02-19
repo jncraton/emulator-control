@@ -26,7 +26,7 @@ void print_registers(int * registers) {
 
 void print_instruction(Instruction inst) {
   // Helper function to print instruction information for debugging
-  static char* instruction_names[6] = {"Halt", "LoadImmediate", "Add", "AddImmediate", "And", "Or", "Xor", "Jump", "BranchOnEqual"};
+  static char* instruction_names[9] = {"Halt", "LoadImmediate", "Add", "AddImmediate", "And", "Or", "Xor", "Jump", "BranchOnEqual"};
 
   printf("%s src=%d dst=%d imm=%d\n", instruction_names[inst.op], inst.src, inst.dst, inst.immediate);
 }
